@@ -1,29 +1,4 @@
-<div style="padding: 20px; font-family: sans-serif;">
-  <h1>{{ title }}</h1>
-
-  <app-barra-cerca (textCercat)="filtrarElements($event)"></app-barra-cerca>
-  <hr>
-  <app-llista-elements [llista]="elementsFiltrats"></app-llista-elements>
-</div>
-<div style="padding: 20px; font-family: sans-serif;">
-  <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
-    <thead style="background-color: #e2e2e2;">
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Valor</th>
-        <th>Descripció</th>
-      </tr>
-    </thead>
-    <tbody class="card">
-      @for (el of elements; track el.id) {
-      <tr>
-        <td>{{ el.id }}</td>
-        <td><strong>{{ el.nom }}</strong></td>
-        <td>{{ el.valor }}</td>
-        <td>{{ el.descripcio || 'Sense descripció' }}</td>
-      </tr>
-      }
-</tbody>
-  </table>
-</div>
+<h1><b>Community Stats</b></h1>>
+<p>Es una app que s’executa en segon pla, la meva app deixarà guardar registres de jocs,
+  guardant així les categories, les hores registrades, entre altres, i amb aquesta informació
+  aconsellar sobre jocs, suggerint xats creats per comunitats...</p>
