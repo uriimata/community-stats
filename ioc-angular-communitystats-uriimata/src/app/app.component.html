@@ -1,0 +1,29 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h1>{{ title }}</h1>
+
+  <app-barra-cerca (textCercat)="filtrarElements($event)"></app-barra-cerca>
+  <hr>
+  <app-llista-elements [llista]="elementsFiltrats"></app-llista-elements>
+</div>
+<div style="padding: 20px; font-family: sans-serif;">
+  <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
+    <thead style="background-color: #e2e2e2;">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Valor</th>
+        <th>Descripció</th>
+      </tr>
+    </thead>
+    <tbody class="card">
+      @for (el of elements; track el.id) {
+      <tr>
+        <td>{{ el.id }}</td>
+        <td><strong>{{ el.nom }}</strong></td>
+        <td>{{ el.valor }}</td>
+        <td>{{ el.descripcio || 'Sense descripció' }}</td>
+      </tr>
+      }
+</tbody>
+  </table>
+</div>

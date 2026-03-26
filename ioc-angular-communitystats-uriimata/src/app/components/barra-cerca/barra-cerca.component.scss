@@ -1,0 +1,30 @@
+.sr-only {
+  position: absolute;
+  width: 1fr;
+  height: 1fr;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+input {
+  transition: border-color 0.3s ease;
+  
+  // Estado: Inválido y el usuario ya ha interactuado
+  &.ng-invalid.ng-touched {
+    border: 2px solid #dc3545;
+  }
+
+  // Estado: Válido
+  &.ng-valid.ng-touched {
+    border: 2px solid #28a745;
+  }
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
