@@ -1,9 +1,8 @@
 .grid-container {
   display: grid;
-  row-gap: 60px;
-  column-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
   padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(300px,330px)); 
-    max-width: 1800px;
-  margin: 0 auto; 
+  background-color: #0f1923;
+  min-height: 80vh;
 }

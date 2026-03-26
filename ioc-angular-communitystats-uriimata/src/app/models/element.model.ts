@@ -3,5 +3,6 @@ export interface Element {
   nom: string;
   valor: number;
   descripcio?: string;
+  isPeak?: boolean;
   imatge?: string;
 }

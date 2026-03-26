@@ -1,11 +1,11 @@
-<div class="card">
-  <h3 class="card-title">{{ item.nom | uppercase }}</h3>
-  <div class="card-content">
-    <div class="card-body">
-      <p><strong>Playtime: </strong> {{ item.valor | number:'1.0-2' }}h</p>
-      <p><strong>Type: </strong>{{ item.descripcio }}</p>
-    </div>
-
-    <img *ngIf="item.imatge" [src]="item.imatge" [alt]="item.nom" class="card-img">
+<div class="game-card" [class.is-peak-card]="item.isPeak">
+  <div class="image-container">
+    <img *ngIf="item.imatge" [src]="item.imatge" [alt]="item.nom">
+    <span class="badge" *ngIf="item.isPeak">Top Played!</span>
+  </div>
+  
+  <div class="card-info">
+    <h3 class="game-title">{{ item.nom }}</h3>
+    <p class="game-stats">{{ item.valor }} h played</p>
   </div>
 </div>
