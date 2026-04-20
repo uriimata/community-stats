@@ -1,8 +1,8 @@
 export interface Element {
   id: number;
+  isPeak?: boolean;
   nom: string;
   valor: number;
-  descripcio?: string;
-  isPeak?: boolean;
+  platform?: string;
   imatge?: string;
 }
