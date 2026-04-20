@@ -7,26 +7,19 @@
       type="text" 
       name="cerca"
       [(ngModel)]="terminiCerca"
-      #inputControl="ngModel"
+      (ngModelChange)="onSearchChange($event)"
+      #inputControl="ngModel" 
       required 
       minlength="3"
       placeholder="Ex: Zelda, Mario..."
-      aria-required="true"
-      [attr.aria-invalid]="inputControl.invalid && inputControl.touched"
     >
 
-    <button 
-      type="submit" 
-      [disabled]="meuForm.invalid"
-      aria-label="Executar cerca">
-      Cercar
-    </button>
+    <button type="submit" [disabled]="meuForm.invalid">Cercar</button>
   </div>
 
-  <div *ngIf="inputControl.invalid && inputControl.touched" 
-       role="alert" 
-       aria-live="polite" 
-       class="error-text">
-    Escriu almenys 3 caràcters per cercar.
-  </div>
+  @if (inputControl.invalid && inputControl.touched) {
+    <div class="error-text">
+      Escriu almenys 3 caràcters per cercar.
+    </div>
+  }
 </form>

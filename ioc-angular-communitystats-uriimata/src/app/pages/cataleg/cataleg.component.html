@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Catàleg de Jocs</h1>
+
+  @if (elementService.carregant()) {
+    <div class="loading-state">
+      <div class="spinner"></div> <p>Buscant jocs populars...</p>
+    </div>
+  }
+
+  @else if (elementService.error()) {
+    <div class="error-state">
+      <p>⚠️ {{ elementService.error() }}</p>
+      <button (click)="elementService.obtenirPopulars()">Reintentar</button>
+    </div>
+  }
+
+  @else {
+    <div class="grid">
+      @for (joc of elementService.elements(); track joc.id) {
+        <app-targueta-element [element]="joc"></app-targueta-element>
+      }
+    </div>
+  }
+</div>

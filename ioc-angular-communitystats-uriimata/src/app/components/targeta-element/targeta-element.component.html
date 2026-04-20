@@ -1,11 +1,15 @@
-<div class="game-card" [class.is-peak-card]="item.isPeak">
+<div class="game-card" [class.is-peak-card]="element.esPeak">
   <div class="image-container">
-    <img *ngIf="item.imatge" [src]="item.imatge" [alt]="item.nom">
-    <span class="badge" *ngIf="item.isPeak">Top Played!</span>
+    <span *ngIf="element.esPeak" class="badge">Top Played!</span>
+    
+    <img [src]="element.imatgeUrl" [alt]="element.nom">
   </div>
   
   <div class="card-info">
-    <h3 class="game-title">{{ item.nom }}</h3>
-    <p class="game-stats">{{ item.valor }} h played</p>
+    <p class="game-title">{{ element.nom }}</p>
+    <div class="game-stats">
+      <span>{{ element.valor }} h played </span>
+      <span>{{ element.plataforma }}</span>
+    </div>
   </div>
 </div>

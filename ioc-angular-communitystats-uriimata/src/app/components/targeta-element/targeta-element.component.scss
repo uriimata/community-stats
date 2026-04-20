@@ -1,5 +1,6 @@
 .game-card {
   width: 100%;
+  max-width: 200px;
   cursor: pointer;
   transition: transform 0.2s ease;
   
@@ -11,7 +12,7 @@
   }
   &.is-peak-card {
     .image-container {
-      border-color: #ff4655;
+      border: 2px solid #ff4655;
       box-shadow: 0 0 15px rgba(255, 70, 85, 0.4);
     }
   }

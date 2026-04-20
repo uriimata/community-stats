@@ -1,29 +1,27 @@
 <div style="padding: 20px; font-family: sans-serif;">
   <h1>{{ title }}</h1>
 
-  <app-barra-cerca (textCercat)="filtrarElements($event)"></app-barra-cerca>
-  <hr>
-  <app-llista-elements [llista]="elementsFiltrats"></app-llista-elements>
-</div>
-<div style="padding: 20px; font-family: sans-serif;">
-  <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
-    <thead style="background-color: #e2e2e2;">
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Valor</th>
-        <th>Descripció</th>
-      </tr>
-    </thead>
-    <tbody class="card">
-      @for (el of elements; track el.id) {
-      <tr>
-        <td>{{ el.id }}</td>
-        <td><strong>{{ el.nom }}</strong></td>
-        <td>{{ el.valor }}</td>
-        <td>{{ el.descripcio || 'Sense descripció' }}</td>
-      </tr>
-      }
-</tbody>
-  </table>
+  <app-barra-cerca (textCercat)="elementService.cercar($event)"></app-barra-cerca>
+
+  @if (elementService.carregant()) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Carregant dades des de l'API...</p>
+    </div>
+  }
+
+  @else if (elementService.error()) {
+    <div class="error-state">
+      <p>⚠️ {{ elementService.error() }}</p>
+      <button (click)="elementService.obtenirPopulars()">Reintentar</button>
+    </div>
+  }
+
+  @else {
+    <app-llista-elements [elements]="elementService.elements()"></app-llista-elements>
+    
+    <table border="1" style="width:100%; margin-top: 20px;">
+       ... (tu código de la tabla) ...
+    </table>
+  }
 </div>

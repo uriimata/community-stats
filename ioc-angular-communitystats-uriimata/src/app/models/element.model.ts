@@ -1,8 +1,17 @@
-export interface Element {
+
+export interface ElementApiResponse {
   id: number;
-  isPeak?: boolean;
+  isPeak: boolean;
   nom: string;
   valor: number;
-  platform?: string;
-  imatge?: string;
+  platform: string;
+  imatge: string;
+}
+export interface ElementCataleg {
+  id: number;
+  esPeak: boolean;
+  nom: string;
+  valor: number;
+  plataforma: string;
+  imatgeUrl: string;
 }
