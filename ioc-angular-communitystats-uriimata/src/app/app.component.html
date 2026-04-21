@@ -1,27 +1,44 @@
-<div style="padding: 20px; font-family: sans-serif;">
+<div class="main-container" style="padding: 20px; font-family: sans-serif;">
   <h1>{{ title }}</h1>
 
-  <app-barra-cerca (textCercat)="elementService.cercar($event)"></app-barra-cerca>
-
+  <app-formulari-cerca (textCercat)="gestionarCerca($event)"></app-formulari-cerca>
   @if (elementService.carregant()) {
     <div class="loading-state">
-      <div class="spinner"></div>
+      <div class="spinner"></div> 
       <p>Carregant dades des de l'API...</p>
     </div>
   }
-
   @else if (elementService.error()) {
     <div class="error-state">
       <p>⚠️ {{ elementService.error() }}</p>
       <button (click)="elementService.obtenirPopulars()">Reintentar</button>
     </div>
   }
-
   @else {
     <app-llista-elements [elements]="elementService.elements()"></app-llista-elements>
-    
-    <table border="1" style="width:100%; margin-top: 20px;">
-       ... (tu código de la tabla) ...
-    </table>
+    @if (elementService.elements().length > 0) {
+      <table border="1" style="width:100%; margin-top: 20px; color: white; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Plataforma</th>
+            <th>Hores</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of elementService.elements(); track item.id) {
+            <tr>
+              <td>{{ item.nom }}</td>
+              <td>{{ item.plataforma }}</td>
+              <td>{{ item.valor }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <p style="color: gray; text-align: center; margin-top: 20px;">
+        No s'han trobat resultats per a la cerca.
+      </p>
+    }
   }
 </div>

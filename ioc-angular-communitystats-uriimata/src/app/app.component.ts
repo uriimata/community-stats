@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BarraCercaComponent } from './components/barra-cerca/barra-cerca.component';
+import { FormulariCercaComponent } from './components/FormulariCerca/formulari-cerca.component'; 
 import { LlistaElementsComponent } from './components/llista-elements/llista-elements.component';
 import { ElementService } from './services/element.service';
 
@@ -9,7 +9,7 @@ import { ElementService } from './services/element.service';
   standalone: true,
   imports: [
     CommonModule,
-    BarraCercaComponent,
+    FormulariCercaComponent,
     LlistaElementsComponent
   ],
   templateUrl: './app.component.html',
@@ -17,14 +17,13 @@ import { ElementService } from './services/element.service';
 })
 export class AppComponent implements OnInit {
   title = 'Community Stats';
-
   public elementService = inject(ElementService);
 
   ngOnInit() {
     this.elementService.obtenirPopulars();
   }
-
-  filtrar(textBusqueda: string) {
-    this.elementService.cercar(textBusqueda);
+  gestionarCerca(terme: string) {
+    console.log('AppComponent rep:', terme);
+    this.elementService.cercar(terme); 
   }
 }

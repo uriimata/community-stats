@@ -1,0 +1,40 @@
+.cerca-container {
+  margin-bottom: 20px;
+  .input-wrapper {
+    display: flex;
+    gap: 10px;
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      &.ng-invalid.ng-touched {
+        border-color: #ff4655;
+      }
+    }
+    .btn-netejar {
+      padding: 10px 15px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;  
+      &:hover {
+        background-color: #666;
+      }
+    }
+  }
+  .indicador-validant {
+    color: #f39c12;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  .missatges-error {
+    margin-top: 5px; 
+    .error {
+      display: block;
+      color: #ff4655;
+      font-size: 0.85em;
+    }
+  }
+}

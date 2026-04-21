@@ -1,5 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+declare var describe: any;
+declare var it: any;
+declare var expect: any;
+declare var beforeEach: any;
 
 describe('AppComponent', () => {
   beforeEach(async () => {

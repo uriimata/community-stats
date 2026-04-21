@@ -1,14 +1,21 @@
-<div class="game-card" [class.is-peak-card]="element.esPeak">
+<div class="game-card" 
+     [class.is-peak-card]="element.esPeak" 
+     [class.es-preferit]="preferitsService.esPreferit(element.id)">
+  
   <div class="image-container">
     <span *ngIf="element.esPeak" class="badge">Top Played!</span>
     
+    <button class="btn-preferit" (click)="togglePreferit()" type="button">
+      {{ preferitsService.esPreferit(element.id) ? '❤️' : '🤍' }}
+    </button>
+
     <img [src]="element.imatgeUrl" [alt]="element.nom">
   </div>
   
   <div class="card-info">
     <p class="game-title">{{ element.nom }}</p>
     <div class="game-stats">
-      <span>{{ element.valor }} h played </span>
+      <span>{{ element.valor }} h played</span>
       <span>{{ element.plataforma }}</span>
     </div>
   </div>

@@ -1,0 +1,38 @@
+<div class="cerca-container">
+  <form [formGroup]="cercaForm">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        formControlName="termeCerca" 
+        placeholder="Cerca elements (mínim 2 caràcters)..."/>
+      
+      <button 
+        type="button" 
+        class="btn-netejar" 
+        *ngIf="termeCercaControl?.value" 
+        (click)="netejarCerca()">
+        Netejar
+      </button>
+    </div>
+
+    <div class="indicador-validant" *ngIf="termeCercaControl?.pending">
+      ⏳ Validant...
+    </div>
+
+    <div class="missatges-error" *ngIf="termeCercaControl?.invalid && termeCercaControl?.touched">
+      
+      <small class="error" *ngIf="termeCercaControl?.errors?.['minlength']">
+        El text ha de tenir un mínim de 2 caràcters.
+      </small>
+      
+      <small class="error" *ngIf="termeCercaControl?.errors?.['maxlength']">
+        El text no pot superar els 50 caràcters.
+      </small>
+      
+      <small class="error" *ngIf="termeCercaControl?.errors?.['sensResultats']">
+        Aquest terme no retorna cap resultat a l'API.
+      </small>
+
+    </div>
+  </form>
+</div>
